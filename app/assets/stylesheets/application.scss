@@ -1,0 +1,22 @@
+/*
+ *= require_self
+ */
+
+@import "pages";
+@import "notes";
+@import "navbar";
+@import "footer";
+@import "index";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #faf3dd;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
