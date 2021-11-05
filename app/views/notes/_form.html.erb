@@ -1,14 +1,5 @@
 <div>
   <%= form_with(model: note, local: true) do |form| %>
-    <% if note.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-        <% note.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
 
     <div class="field title-priority">
 
@@ -17,7 +8,7 @@
       </div>
 
       <div class="field field-priority">
-        <%= select_tag :priority, options_for_select(Note.priorities.map {|k, v| [ k.humanize.capitalize, v ]}) %>
+        <%= form.select :priority, Note::PRIORITIES %>
       </div>
 
     </div>
@@ -29,5 +20,15 @@
     <div class="actions field-submit">
       <%= form.submit %>
     </div>
+
+    <% if note.errors.any? %>
+      <div id="error_explanation" class="note-errors">
+        <ul>
+        <% note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 </div>
