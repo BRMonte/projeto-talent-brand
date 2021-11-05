@@ -1,3 +1,50 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.homepage-container {
+  width: 100%;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.central_stripe {
+  height: 200px;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: 220px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.central_stripe-header {
+  margin-top: 50px;
+  font-size: 50px;
+}
+
+.btn-log-in-sign-up {
+  color: white;
+  background-color: royalblue;
+  width: 150px;
+  height: 50px;
+  border-radius: 24px;
+  transition-duration: 0.4s;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+  &:hover {
+    background-color: lightblue;
+    color: black;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+
+  }
+}
