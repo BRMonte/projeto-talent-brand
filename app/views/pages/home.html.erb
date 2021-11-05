@@ -3,8 +3,14 @@
   <div class="homepage-container">
   <h1 class="central_stripe-header">Bem vindo ao bloco de notas</h1>
     <div class="central_stripe">
-      <button class="btn-log-in-sign-up"><%= link_to 'Log In', new_user_session_path %></button>
-      <button class="btn-log-in-sign-up"><%= link_to 'Sign Up', new_user_registration_path %></button>
+      <% if user_signed_in? %>
+        <button class="btn-log-in-sign-up"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></button>
+      <% else %>
+        <button class="btn-log-in-sign-up"><%= link_to 'Log In', new_user_session_path %></button>
+        <button class="btn-log-in-sign-up"><%= link_to 'Sign Up', new_user_registration_path %></button>
+      <% end %>
     </div>
   </div>
 </html>
+
+
