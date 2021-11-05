@@ -11,9 +11,15 @@
     <% end %>
 
     <div class="field title-priority">
+
       <div class="field field-titulo">
         <%= form.text_field :title, placeholder: "Titulo"%>
       </div>
+
+      <div class="field field-priority">
+        <%= select_tag :priority, options_for_select(Note.priorities.map {|k, v| [ k.humanize.capitalize, v ]}) %>
+      </div>
+
     </div>
 
     <div class="field field-content">

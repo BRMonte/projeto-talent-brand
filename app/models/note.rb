@@ -9,6 +9,8 @@ class Note < ApplicationRecord
 
   scope :filter_by_content, -> (content) { where("content like ?", "#{content}%")}
 
+  enum priority:   { 'Alta' => 1, 'Media' => 2, 'Baixa' => 3 }
+
   def self.search(search)
     if search
       note_by_content = Note.find_by(content: search)
