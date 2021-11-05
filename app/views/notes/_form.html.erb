@@ -1,0 +1,27 @@
+<div>
+  <%= form_with(model: note, local: true) do |form| %>
+    <% if note.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field title-priority">
+      <div class="field field-titulo">
+        <%= form.text_field :title, placeholder: "Titulo"%>
+      </div>
+    </div>
+
+    <div class="field field-content">
+      <%= form.text_area :content, placeholder: "..." %>
+    </div>
+
+    <div class="actions field-submit">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

@@ -1,1 +1,9 @@
-<h3>Crie sua nova nota</h3>
+<div>
+  <header class="note-header">
+    <h3>Crie sua nova nota</h3>
+  </header>
+  <div class="index-container-note">
+    <%= render 'form', note: @note %>
+  </div>
+  <%= link_to 'Back', notes_path %>
+</div>

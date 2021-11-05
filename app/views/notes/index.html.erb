@@ -1,1 +1,35 @@
-<h1>Essa e a index<h1>
+<div class="index-container">
+  <p id="notice"><%= notice %></p>
+  <header class="header">
+    <h1>Notas</h1>
+  </header>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Date</th>
+        <th>Priority</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @notes.each do |note| %>
+        <tr>
+          <td><%= link_to note.title, note %></td>
+          <td><%= note.content %></td>
+          <td><%= time_ago_in_words(note.created_at) %></td>
+          <td><%= note.priority %></td>
+          <td><%= link_to 'Edit', edit_note_path(note) %></td>
+          <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to '+', new_note_path %>
+</div>
