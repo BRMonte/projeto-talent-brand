@@ -6,4 +6,20 @@ class Note < ApplicationRecord
   validates :title, presence: true,
             length: { minimum: 3 },
             uniqueness: { message: "%{value} já existe" }
+
+  scope :filter_by_content, -> (content) { where("content like ?", "#{content}%")}
+
+  def self.search(search)
+    if search
+      note_by_content = Note.find_by(content: search)
+      if note_by_content
+        self.where(note_id: note_by_content)
+        else
+          Note.all
+      end
+    else
+        Note.all
+    end
+  end
+
 end

@@ -4,6 +4,13 @@
     <h1>Notas</h1>
   </header>
 
+  <div>
+    <%= form_tag(notes_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag("Buscar") %>
+    <% end %>
+  </div>
+
   <table>
     <thead>
       <tr>
