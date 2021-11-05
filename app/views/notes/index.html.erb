@@ -1,23 +1,23 @@
 <div class="index-container">
-  <p id="notice"><%= notice %></p>
+  <span id="notice"><%= notice %></span>
   <header class="header">
-    <h1>Notas</h1>
+    <h1>Minhas Notas</h1>
   </header>
 
   <div>
     <%= form_tag(notes_path, method: :get) do %>
-      <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag("Buscar") %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Pesquisa por titulo...', class: 'index-search-bar' %>
+      <%= submit_tag "Buscar", class: 'index-search-bar-btn' %>
     <% end %>
   </div>
 
-  <table>
+  <table class="index-table">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Date</th>
-        <th>Priority</th>
+        <th>Titulo</th>
+        <th>Conteudo</th>
+        <th>Criado ha</th>
+        <th>Prioridade</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -29,8 +29,8 @@
           <td><%= note.content %></td>
           <td><%= time_ago_in_words(note.created_at) %></td>
           <td><%= note.priority %></td>
-          <td><%= link_to 'Edit', edit_note_path(note) %></td>
-          <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Editar', edit_note_path(note) %></td>
+          <td><%= link_to 'Deletar', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -38,5 +38,5 @@
 
   <br>
 
-  <%= link_to '+', new_note_path %>
+  <%= link_to '+', new_note_path, class: 'index-add-note-btn' %>
 </div>
